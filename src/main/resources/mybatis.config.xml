@@ -16,7 +16,7 @@
         </environment>
     </environments>
     <mappers>
-        <!--could use 'package name' instead to prevent having to manually list each mapper-->
+        <!--could use 'package name=com.tw.wkh.mappers' instead to prevent having to manually list each mapper; pull out non-mappers from this package-->
         <mapper class="com.tw.wkh.mappers.ProdOfMapper" />
     </mappers>
 </configuration>

@@ -29,7 +29,6 @@ dependencies {
 	compile("commons-lang:commons-lang:2.6")
 	compile("org.mybatis:mybatis:3.4.1")
 
-
 	runtime('mysql:mysql-connector-java')
 
 	testCompile('org.springframework.boot:spring-boot-starter-test')
@@ -40,12 +39,12 @@ dependencies {
 
 task createCMSDB(type: Exec) {
 	workingDir 'db/cms'
-	commandLine './createmockcms.sh'
+	commandLine './createmockcms.sh', 'wkh_mock_cms', 'root', 'rootpass'
 }
 
 task createDB(type: Exec) {
 	workingDir 'db'
-	commandLine './createbuild.sh'
+	commandLine './createbuild.sh', 'wkh_poc', 'root', 'rootpass'
 }
 
 task initDB(type: Exec) {
