@@ -15,24 +15,27 @@ public class ProdOf {
         return productId;
     }
 
-    public void setProductId(Integer productId) {
+    public ProdOf setProductId(Integer productId) {
         this.productId = productId;
+        return this;
     }
 
     public String getProductName() {
         return productName;
     }
 
-    public void setProductName(String productName) {
+    public ProdOf setProductName(String productName) {
         this.productName = productName;
+        return this;
     }
 
     public Integer getDrugDescriptionId() {
         return drugDescriptionId;
     }
 
-    public void setDrugDescriptionId(Integer drugDescriptionId) {
+    public ProdOf setDrugDescriptionId(Integer drugDescriptionId) {
         this.drugDescriptionId = drugDescriptionId;
+        return this;
     }
 
 
