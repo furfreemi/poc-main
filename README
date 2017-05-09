@@ -1,0 +1,8 @@
+MyBatis database migrations:
+cd db/migrations
+mybatis/bin/migrate new "migration name here"
+-enter migration text into file generated in db/migrations/scripts-
+mybatis/bin/migrate up
+
+
+
