@@ -1,7 +1,5 @@
 package com.tw.wkh.filewrite;
 
-import org.apache.commons.lang.StringUtils;
-
 public class FileSpecifications {
     private LineFormatter formatter;
     private String query;
