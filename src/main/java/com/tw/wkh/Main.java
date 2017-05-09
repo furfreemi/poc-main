@@ -1,5 +1,6 @@
 package com.tw.wkh;
 
+import com.tw.wkh.api.HelloWorldRequest;
 import com.tw.wkh.api.HelloWorldService;
 import com.tw.wkh.filewrite.ConfigManager;
 import com.tw.wkh.filewrite.DatabaseConnectionUtil;
@@ -13,6 +14,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -40,8 +42,8 @@ public class Main {
         }
 
 
-        new HelloWorldService().init();
-
+        HelloWorldRequest testRequest = new HelloWorldService().executeRequest(new RestTemplate());
+        System.out.println(testRequest.getMessage());
 
         new Parser().empNameOfFile();
         new Parser().drugDescriptionAndNdcFile();
