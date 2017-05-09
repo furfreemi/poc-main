@@ -5,6 +5,12 @@ public class ProdOf {
     private String productName;
     private Integer drugDescriptionId;
 
+    public ProdOf(Integer productId, String productName, Integer drugDescriptionId) {
+        this.productId = productId;
+        this.productName = productName;
+        this.drugDescriptionId = drugDescriptionId;
+    }
+
     public Integer getProductId(){
         return productId;
     }
