@@ -1,5 +1,22 @@
 Dependent on locally-running mock CMS API, available at:
 https://bitbucket.org/apurvkumaria/cdi-cms-mock-api
+This CMS API runs at localhost:4567
+
+Depends on MySQL local setup. Currently requires 'root' user with password 'rootpass'.
+
+To initialize mock CMS database:
+./gradlew createCMSDB
+
+To initialize build database:
+./gradlew initDB
+(Runs migrations and loads some data from irrelevant backup)
+
+Note that both of these database steps totally drop databases and reinitialize.
+
+To run 'Main', demonstrating capabilities and starting up web services:
+./gradlew clean build bootRun
+
+Runs at localhost:8080
 
 MyBatis database migrations:
 cd db/migrations
