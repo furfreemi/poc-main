@@ -1,3 +1,6 @@
+Dependent on locally-running mock CMS API, available at:
+https://bitbucket.org/apurvkumaria/cdi-cms-mock-api
+
 MyBatis database migrations:
 cd db/migrations
 mybatis/bin/migrate new "migration name here"
