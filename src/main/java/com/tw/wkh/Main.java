@@ -8,14 +8,20 @@ import com.tw.wkh.mappers.MyBatisUtil;
 import com.tw.wkh.mappers.ProdOf;
 import com.tw.wkh.mappers.ProdOfMapper;
 import org.apache.ibatis.session.SqlSession;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-@SpringBootApplication
+@Configuration
+@ComponentScan
+@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 public class Main {
     public static void main(String[] args) {
         ConfigManager config = new ConfigManager();
@@ -45,5 +51,9 @@ public class Main {
         ProdOfMapper mapper = session.getMapper(ProdOfMapper.class);
         ProdOf product = mapper.selectProdOf(476233);
         System.out.println(product.getProductName());
+
+
+
+        SpringApplication.run(Main.class, args);
     }
 }
