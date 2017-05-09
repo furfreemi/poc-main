@@ -23,6 +23,7 @@ public class Parser {
                 String line = fileConstructor.formatter().format(rs);
                 writer.write(line + '\n');
             }
+            writer.close();
         } catch (SQLException | IOException e) {
             e.printStackTrace();
         }

@@ -8,3 +8,4 @@ classes
 .idea/
 .DS_Store
 jenvrc
+*.f
