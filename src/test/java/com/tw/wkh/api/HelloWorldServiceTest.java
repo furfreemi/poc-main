@@ -8,6 +8,8 @@ import org.springframework.web.client.RestTemplate;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
@@ -35,5 +37,6 @@ public class HelloWorldServiceTest {
         HelloWorldRequest response = helloWorldService.executeRequest(restTemplate);
 
        assertThat(response.getMessage(), is("test message body"));
+       verify(restTemplate, times(1)).getForEntity(URLs.BASE + "/testHello", String.class);
     }
 }

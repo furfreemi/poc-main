@@ -5,6 +5,8 @@ import com.tw.wkh.api.HelloWorldService;
 import com.tw.wkh.filewrite.ConfigManager;
 import com.tw.wkh.filewrite.DatabaseConnectionUtil;
 import com.tw.wkh.filewrite.Parser;
+import com.tw.wkh.filewrite.filetypes.EpnWdsCreateFile;
+import com.tw.wkh.filewrite.filetypes.EpnWmpCreateFile;
 import com.tw.wkh.mappers.MyBatisUtil;
 import com.tw.wkh.mappers.ProdOf;
 import com.tw.wkh.mappers.ProdOfMapper;
@@ -45,8 +47,9 @@ public class Main {
         HelloWorldRequest testRequest = new HelloWorldService().executeRequest(new RestTemplate());
         System.out.println(testRequest.getMessage());
 
-        new Parser().empNameOfFile();
-        new Parser().drugDescriptionAndNdcFile();
+        Parser parser = new Parser();
+        parser.writeFile(new EpnWdsCreateFile());
+        parser.writeFile(new EpnWmpCreateFile());
 
 
         SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
