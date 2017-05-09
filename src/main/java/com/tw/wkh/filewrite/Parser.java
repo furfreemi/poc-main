@@ -12,7 +12,7 @@ import java.sql.Statement;
 
 public class Parser {
 
-    public void writeFile(CreateFile fileConstructor) {
+    public void writeFile(FileSpecifications fileConstructor) {
         Connection conn = DatabaseConnectionUtil.getCmsConnection();
 
         try {
