@@ -1,28 +1,50 @@
-Dependent on locally-running mock CMS API, available at:
+************************** CMS mock API **************************
+
+This project relies on locally-running mock CMS API, available at:
 https://bitbucket.org/apurvkumaria/cdi-cms-mock-api
 This CMS API runs at localhost:4567
 
-Depends on MySQL local setup. Currently requires 'root' user with password 'rootpass'.
 
+
+************************* Database setup *************************
+
+In order to generate the databases, your computer must have the 'mysql' command line interface installed.
+
+Database configuration:
+Default is database running at localhost:3306 with user 'root' and password 'rootpass'
+Customize your database configuration in:
+db/migrations/environments/development.properties
+main/resources/database.properties
+
+Initializing databases: Note that both of these database steps totally drop databases and reinit.
 To initialize mock CMS database:
 ./gradlew createCMSDB
 
 To initialize build database:
 ./gradlew initDB
-(Runs migrations and loads some data from irrelevant backup)
+(Runs all migrations and loads some data from irrelevant backup)
 
-Note that both of these database steps totally drop databases and reinitialize.
 
-To run 'Main', demonstrating capabilities and starting up web services:
-./gradlew clean build bootRun
 
-Runs at localhost:8080
+*********************** Database migrations ***********************
 
 MyBatis database migrations:
 cd db/migrations
 mybatis/bin/migrate new "migration name here"
 -enter migration text into file generated in db/migrations/scripts-
 mybatis/bin/migrate up
+
+
+
+********************** Running the application **********************
+
+To run 'Main', demonstrating capabilities and starting up web services:
+./gradlew clean build bootRun
+
+The produced API will run at localhost:8080
+
+
+
 
 
 
