@@ -1,6 +1,5 @@
 package com.tw.wkh.filewrite;
 
-
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -28,10 +27,5 @@ public class Parser {
             e.printStackTrace();
         }
     }
-
-
-
-
-
 
 }
