@@ -25,7 +25,6 @@ repositories {
 	mavenCentral()
 }
 
-
 dependencies {
 	compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.0')
 	compile('org.springframework.boot:spring-boot-starter-web')
@@ -42,12 +41,12 @@ dependencies {
 
 task createCMSDB(type: Exec) {
 	workingDir 'db/cms'
-	commandLine './createmockcms.sh', "${props.getProperty("cmsDatabase")}", "${props.getProperty("jdbc.username")}", "${props.getProperty("jdbc.password")}"
+	commandLine './createmockcms.sh', "${props.getProperty('cmsDatabase')}", "${props.getProperty('jdbc.username')}", "${props.getProperty('jdbc.password')}"
 }
 
 task createDB(type: Exec) {
 	workingDir 'db'
-	commandLine './createbuild.sh', "${props.getProperty("buildDatabase")}", "${props.getProperty("jdbc.username")}", "${props.getProperty("jdbc.password")}"
+	commandLine './createbuild.sh', "${props.getProperty('buildDatabase')}", "${props.getProperty('jdbc.username')}", "${props.getProperty('jdbc.password')}"
 }
 
 task initDB(type: Exec) {
