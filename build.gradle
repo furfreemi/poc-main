@@ -1,3 +1,7 @@
+Properties props = new Properties()
+props.load(new FileInputStream("./src/main/resources/database.properties"))
+
+
 buildscript {
 	ext {
 		springBootVersion = '1.5.3.RELEASE'
@@ -36,15 +40,14 @@ dependencies {
 	testCompile('org.mockito:mockito-core:1.9.5')
 }
 
-
 task createCMSDB(type: Exec) {
 	workingDir 'db/cms'
-	commandLine './createmockcms.sh', 'wkh_mock_cms', 'root', 'rootpass'
+	commandLine './createmockcms.sh', "${props.getProperty("cmsDatabase")}", "${props.getProperty("jdbc.username")}", "${props.getProperty("jdbc.password")}"
 }
 
 task createDB(type: Exec) {
 	workingDir 'db'
-	commandLine './createbuild.sh', 'wkh_poc', 'root', 'rootpass'
+	commandLine './createbuild.sh', "${props.getProperty("buildDatabase")}", "${props.getProperty("jdbc.username")}", "${props.getProperty("jdbc.password")}"
 }
 
 task initDB(type: Exec) {
